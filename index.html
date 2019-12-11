@@ -1,21 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <input type="text" id="city_search">
-    <br>
-    <input type="submit" id="city_find" value="Search Cities">
-    <div class="city"></div>
-    <div class="date"></div>
-    <div class="temp"></div>
-    <div class="humidity"></div>
-    <div class="wind"></div>
+    <div class="container">
+    <div class="card col-lg-12">
+        <h1> Weather Dashboard</h1>
+
+    </div>
+    <div class="row">
+        <div class="col-md-3 border">
+            <h3>Search for a City:</h3>
+            <input type="text" id="city_search">
+            <button type="button" id="city_find">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+        <div class="col-md-9 here">
+            <div class="city"></div>
+            <div class="date"></div>
+            <div class="temp"></div>
+            <div class="humidity"></div>
+            <div class="wind"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 border">
+            <ul>
+                <li>City history search</li>
+                <li>Is going to go</li>
+                <li>Here somewhere</li>
+            </ul>
+        </div>
+        <div id="forecast" class="border row col-md-9">
+                <input type="submit" id="foreCast" value="5 Day Forecast">
+        </div>
+    </div>
+</div>
 
     <!-- A search bar to search for cities -->
     <!-- Store the cities previously searched -->
@@ -24,4 +56,5 @@
     <!-- Need 5 day forecast -->
     <script src="main.js"></script>
 </body>
+
 </html>

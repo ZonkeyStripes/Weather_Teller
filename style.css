@@ -1,0 +1,14 @@
+h1 {
+    text-align: center;
+}
+
+.here {
+    border: solid black;
+}
+.border {
+    border: solid gray;
+}
+.cardborder {
+    border: solid navy;
+    margin: 1%;
+}
