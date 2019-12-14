@@ -10,41 +10,44 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <div class="container">
-    <div class="card col-lg-12">
+    <header class="card col-lg-12">
         <h1> Weather Dashboard</h1>
+    </header>
+    <div class="container">
 
-    </div>
     <div class="row">
         <div class="col-md-3 border">
-            <h3>Search for a City:</h3>
+            <p style="font-weight: bold;">Search for a City:<p>
             <input type="text" id="city_search">
             <button type="button" id="city_find">
                 <i class="fa fa-search"></i>
             </button>
+
+            <ul id="cityStore">
+            </ul>
+
         </div>
         <div class="col-md-9 here">
             <div class="city"></div>
+            <div class="icon"></div>
             <div class="date"></div>
+            <br>
             <div class="temp"></div>
+            <br>
             <div class="humidity"></div>
+            <br>
             <div class="wind"></div>
+            <br>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-3 border">
-            <ul>
-                <li>City history search</li>
-                <li>Is going to go</li>
-                <li>Here somewhere</li>
-            </ul>
+        <div class="col-md-3">
         </div>
         <div id="forecast" class="border row col-md-9">
-                <input type="submit" id="foreCast" value="5 Day Forecast">
         </div>
     </div>
 </div>
@@ -54,7 +57,8 @@
     <!-- Div's to display information gathered by weather api -->
     <!-- Show current day in seperate div then: -->
     <!-- Need 5 day forecast -->
-    <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="assets/java/main.js"></script>
 </body>
 
 </html>
