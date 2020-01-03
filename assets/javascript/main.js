@@ -8,6 +8,8 @@ if(localStorage.getItem("cities")) {
     cityArr = JSON.parse(localStorage.getItem("cities"))
 }
 
+
+
 $("#city_find").on("click", function () {
 
     let apiKey = "828d8c5dd2b3ef0673d597d675ed89f6"
@@ -18,16 +20,6 @@ $("#city_find").on("click", function () {
         let cityString = JSON.stringify(cityArr)
         localStorage.setItem("cities", cityString)
     }
-
-    // localStorage.setItem("city", city)
-    // localStorage.getItem(city)
-    // console.log(localStorage.getItem(city))
-
-// need icons to display
-// need to format date, to display properly
-// uv index
-// local storage to save the cities previously searched
-
 
     $.ajax({
         url: queryURL,
@@ -45,11 +37,13 @@ $("#city_find").on("click", function () {
         })
 
         //city name 
-        $(".city").html("<h2>" + response.city.name + " " + moment(response.list[0].dt_txt).format("MM DD YYYY") + " <i>" + response.list[0].weather[0].icon + "</i>")
-        // let jayson = toString(response.list[0].dt_txt)
-        // jayson.slice(0, 9)
-        // console.log(response.list[0].dt_txt)
-        // $(".date").html("<h4> Date: " + response.list[0].dt_txt)
+        $(".city").html("<h2>" + response.city.name + " " + moment(response.list[0].dt_txt).format("MM/DD/YYYY"))
+
+        let iconcode = response.list[0].weather[0].icon
+        let iconURL = "http://openweathermap.org/img/w/" + iconcode + ".png";
+        $("#wicon").attr('src', iconURL);
+        // $('#wicon')
+
         console.log(response.list[0].weather[0].icon)
 
         console.log(response.list[0].main.temp)//temp
@@ -73,13 +67,16 @@ $("#city_find").on("click", function () {
     
                     let div = $("<div>").addClass("cardborder col-sm-2")
                     let dt = $("<p></p>").addClass("card-title").text(response.list[i * 8].dt_txt)
-                    let pic = $("<p></p>").text(response.list[i * 8].weather[0].icon)
+                    
+                    let iconcodes = response.list[i * 8].weather[0].icon
+                    let iconURLs = "http://openweathermap.org/img/w/" + iconcodes + ".png";
+                    
+
+                    let pic = $("<img>").attr('src', iconURLs)
+                    // text(response.list[i * 8].weather[0].icon)
                     var tempF = (response.list[i + 8].main.temp - 273.15) * 1.80 + 32;
                     let tempcast = $("<p></p>").text("Temp: " + Math.round(tempF) + "°F")
                     let humidcast = $("<p></p>").text("Humidity: " + response.list[i * 8].main.humidity + "%")
-    
-                    //icon if statement
-                    // console.log(dt)
     
                     $("#forecast").append(div)
                     $(div).append(dt)
@@ -97,7 +94,7 @@ $("#city_find").on("click", function () {
             fiveDayCast();
     });
 
-    $("#cityStore").empty();
+    $("#appendCities").empty();
     cityList();
 
 
@@ -115,11 +112,21 @@ $("#foreCast").on("click", function () {
 
 
 function cityList() {
+
+    
     for(i = 0; i < cityArr.length; i++) {
+        
+        let td = $("<td>").text(cityArr[i]).attr("text-transform", "capitalize")
+        let thead = $("<thead>").addClass("thead-dark")
+        let th = $("<th>").attr("scope", "col")
+        let tr = $("<tr>")
+        
+        $("#appendCities").append(thead)
+        $(thead).append(tr)
+        $(tr).append(th)
 
-        let cd = $("<p>").text(cityArr[i])
-
-        $("#cityStore").append(cd)
+        $("#appendCities").append(tr)
+        $(tr).append(td)
     }
 }
 
