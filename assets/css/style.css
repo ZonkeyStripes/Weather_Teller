@@ -12,6 +12,7 @@ header {
 .here {
     border: solid black;
     border-radius: 5px;
+    height: 400px;
 
 }
 .border {
