@@ -8,23 +8,71 @@ h1 {
 header {
     color: whitesmoke;
 }
-
+.position {
+    position: relative;
+}
+.cityhist {
+    height: 100%;
+    border: black;
+    overflow-y: auto;
+}
+.height {
+    max-height: 400px;
+}
 .here {
     border: solid black;
     border-radius: 5px;
-    height: 400px;
+    max-height: 400px;
+    height: 100%;
+    max-width: 900px;
+    width: 100%;
 
 }
-.border {
-    border: solid gray;
-    border-radius: 5px;
+
+#forecast {
+    align-items: center;
+}
+.divcast {
+    max-height: 400px;
+    height: 100%;
+    margin-top: 13%;
+    margin-left: 5%;
 }
 .cardborder {
     background-color: dodgerblue;
     margin: 1%;
     border-radius: 10%;
     color: whitesmoke;
+    max-height: 400px;
+    max-width: 225px;
+    width: 100%;
+    height: 100%;
 }
 .fontstyle {
     font-weight: bold;
 }
+.clicko:hover {
+    color: brown;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(3, 123, 236); 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(0, 20, 196); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(7, 26, 112, 0.226); 
+  }
